@@ -1,16 +1,15 @@
 const defaultResult = 0
 let currentData = defaultResult;
-currentData = currentData + 10;
 let calculationDescription = 'The result is';
 
-function add(num1, num2)
+function add()
 {
-    const result = num1 + num2;
-    return result;
+    currentData = currentData + userInput.value;
+    outputResult(currentData,calculationDescription);
 }
 
-currentData = add(1,3);
+addBtn.addEventListener('click', add);
 
 
-outputResult(currentData,calculationDescription);
+
 
