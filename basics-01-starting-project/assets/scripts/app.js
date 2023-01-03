@@ -1,3 +1,5 @@
-let currentData = 0;
+const defaultResult = 0
+let currentData = defaultResult;
 currentData = currentData + 10;
-outputResult(currentData,'');
+let calculationDescription = 'The result is';
+outputResult(currentData,calculationDescription)
