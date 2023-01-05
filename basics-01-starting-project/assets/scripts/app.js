@@ -1,6 +1,7 @@
 const defaultResult = 0
 let currentData = defaultResult;
 let calculationDescription = 'The result is';
+let resultArray = [];
 
 function getEnteredNumber(){
     return parseInt(userInput.value);
@@ -16,7 +17,15 @@ function add(){
     const initalResult = currentData;
     currentData = currentData + enteredNumber;
     createAndWriteOutput(initalResult, '+', enteredNumber);
-}
+    const logEntry = {
+        operation: 'ADD',
+        prevResult: initalResult,
+        number: enteredNumber,
+        result: currentData
+    };
+    resultArray.push(currentData);
+    console.log(logEntry);
+}   
 
 function substract(){
     let enteredNumber = getEnteredNumber();
@@ -43,6 +52,8 @@ addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click',substract);
 multiplyBtn.addEventListener('click',multiply);
 divideBtn.addEventListener('click',divide);
+
+
 
 //hehe comment added
 
