@@ -2,6 +2,8 @@ const defaultResult = 0
 let currentData = defaultResult;
 let calculationDescription = 'The result is';
 let resultArray = [];
+//when we check typeof of an array we get objet
+//because an array is a special type of object and similarly null
 
 function getEnteredNumber(){
     return parseInt(userInput.value);
