@@ -13,7 +13,26 @@ function createAndWriteOutput(initalResult, operator, enteredNumber){
     calculationDescription = `${initalResult} ${operator} ${enteredNumber}`;
     outputResult(currentData,calculationDescription);
 }
-
+function calculateResult(calculationType){
+    let mathOperator
+    if(calculationType==='ADD'){
+        let enteredNumber = getEnteredNumber();
+        const initalResult = currentData;
+        currentData = currentData + enteredNumber;
+        mathOperator='+'
+        createAndWriteOutput(initalResult, mathOperator, enteredNumber);
+        writeToLog(calculationType, initalResult, enteredNumber, currentData);
+    }
+    else{
+        calculationType='Subtract'
+        let enteredNumber = getEnteredNumber();
+        const initalResult = currentData;
+        currentData = currentData - enteredNumber;
+        mathOperator='-'
+        createAndWriteOutput(initalResult, mathOperator, enteredNumber);
+        writeToLog(calculationType, initalResult, enteredNumber, currentData);
+    }
+}
 function writeToLog(
     operator,
     prevResult,
@@ -31,19 +50,11 @@ function writeToLog(
 }
 
 function add(){
-    let enteredNumber = getEnteredNumber();
-    const initalResult = currentData;
-    currentData = currentData + enteredNumber;
-    createAndWriteOutput(initalResult, '+', enteredNumber);
-    writeToLog('ADD', initalResult, enteredNumber, currentData);
+    calculateResult('ADD');
 }   
 
 function substract(){
-    let enteredNumber = getEnteredNumber();
-    const initalResult = currentData;
-    currentData = currentData - enteredNumber;
-    createAndWriteOutput(initalResult, '-', enteredNumber);
-    writeToLog('Substract', initalResult, enteredNumber, currentData);
+    calculateResult('Subtract');
 }
 
 function multiply(){
